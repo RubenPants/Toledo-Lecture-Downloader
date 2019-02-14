@@ -71,4 +71,13 @@ work to manually change each url. It is possible to change the code
 Inside the *Manager.java* class a dictionary named *parseDic* is created.
 Find the prefix used for your lectures and put this in the dictionary.
 Say for example that your lecture uses the following: *lec-1-...* then
-add the following to the dictionary: ``` put("lec-1-", "lec-[i]-"); ```. 
+add the following to the dictionary: ``` put("lec-1-", "lec-[i]-"); ```.
+
+## Copy Right
+KU Leuven (or any other platform for which you'll try to use this program
+to download video's from) has full copy right. If you want to download the
+video's then you must always ask for permission from the owner of the video.
+<br/>
+I, as the creator of this program, am not responsible for others which use 
+this code in any malicious way possible and I definitely discourage anyone 
+whom will try to do so.
