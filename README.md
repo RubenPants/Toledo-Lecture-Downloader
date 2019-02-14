@@ -73,6 +73,15 @@ Find the prefix used for your lectures and put this in the dictionary.
 Say for example that your lecture uses the following: *lec-1-...* then
 add the following to the dictionary: ``` put("lec-1-", "lec-[i]-"); ```.
 
+#### Why is the download taking this long?
+A lecture is downloaded by downloading segments of around 9 seconds
+separately. These segments are then (sequentially) knitted back together. 
+This process takes quite some overhead with it, but this is unfortunately
+how online video-streaming services work. The downloading-speed mainly
+depends on how stable your internet connection is. Note that even with a
+solid internet connection it still can take up to 20 minutes to load a 2
+hour lecture.
+
 ## Copy Right
 KU Leuven (or any other platform for which you'll try to use this program
 to download video's from) has full copy right. If you want to download the
