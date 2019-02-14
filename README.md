@@ -3,28 +3,28 @@
 To download your lecture you first need to do the following steps:
 1. Open the lecture inside a new tab by clicking on the icon indicated
  in the figure below. Please do not start the lecture yet! <br/>
-![alt text](/img/new_tab.jpg)
+![new tab image](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/new_tab.JPG)
 
 2. Open *developer tools* in the new tab you just opened (the tab the
 lecture is in). *Developer tools* can be opened by going to your tab-
 settings, or pressing F12 in chrome. <br/>
-![alt text](/img/dev_tools.png)
+![developer tools](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/dev_tools.png)
 
 3. Once developer options is opened you have to go to the *network*
 section. After you did this, you can play the lecture video. HTTP-
 request normally will start coming in (no worries, most of them
 are irrelevant for our purpose). If nothing happens, please refresh
 the tab (press CTRL+R). <br/>
-![alt text](/img/network.jpg)
+![network pane](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/network.JPG)
 
 4. Withing the *flood* of HTTP-requests, try to find a requests title
 *seg-1-...* (seg-*2* till *5* will also do the trick). Click on this
 request, a new pane will open. <br />
-![alt text](/img/network_seg.jpg)
+![segment request](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/network_seg.JPG)
 
 5. In the pane that just opened, a (quite large) *Request URL* can be
 found, you have to copy this url. 
-![alt text](/img/copy_url.jpg)
+![segment request url](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/copy_url.JPG)
 
 6. Open the program by running the *ToledoVideoDownloader.jar* file
 which can be found inside the root-directory on github if you didn't
@@ -35,7 +35,7 @@ yet downloaded it. Within the program, do the following:
     - Paste the *request url* of the step 5 inside the *URL of first
     segment* block.
     - Press the *Download* button to run the program.<br/>
-![alt text](/img/program.jpg)
+![program](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/program.JPG)
 
 
 ## Q&A

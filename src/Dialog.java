@@ -22,7 +22,7 @@ public class Dialog extends JFrame {
     private static String siteErrorMessage = "Site could not be reached";
 
     // Site url
-    private static String siteUrl = "www.google.com"; // TODO
+    private static String siteUrl = "http://github.com/RubenPants/Toledo-Lecture-Downloader";
 
     // Dialog members
     private ValuePanel fileName;
