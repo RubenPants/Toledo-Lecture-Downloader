@@ -20,6 +20,8 @@ public class Dialog extends JFrame {
     private static String downloadFinishedMessage = "Download finished.\n" +
             "If file not in root directory then download has failed.";
     private static String siteErrorMessage = "Site could not be reached";
+    private static String downloadTitle = "Download";
+    private static String stopDownloadTitle = "Stop downloading";
 
     // Site url
     private static String siteUrl = "http://github.com/RubenPants/Toledo-Lecture-Downloader";
@@ -31,6 +33,12 @@ public class Dialog extends JFrame {
     private JLabel segmentNr;
     private JButton helpButton;
     private JButton downloadButton;
+
+    // State-boolean
+    private boolean downloading = false;
+
+    // Download thread
+    private Thread downloadThread;
 
     public static void main(String[] args) {
         new Dialog().setVisible(true);
@@ -52,30 +60,37 @@ public class Dialog extends JFrame {
         JScrollPane sp = new JScrollPane(urlInput);
         segmentNr = new JLabel(segDownloadedString + "0");
         helpButton = new JButton("Help");
-        downloadButton = new JButton("Download");
+        downloadButton = new JButton(downloadTitle);
 
         // Add listener to button
         downloadButton.addActionListener(e -> {
-            String name = fileName.getValue();
-            if (name.equals("")) {
-                JOptionPane.showMessageDialog(null, "Please fill in a filename");
-                return;
-            }
-
-            String url = urlInput.getText();
-            if (url.equals("") || !url.contains("https://") || !url.contains("seg")) {
-                JOptionPane.showMessageDialog(null, "Please fill in a valid segment url");
-                return;
-            }
-
-            Runnable downloadThread = () -> {
-                try {
-                    Manager.useManager(Dialog.this, name, url);
-                } catch (Exception manager_exception) {
-                    JOptionPane.showMessageDialog(null, downloadFinishedMessage);
+            if (downloading) {
+                toggleDownload();
+                downloadThread.stop();
+            } else {
+                toggleDownload();
+                String name = fileName.getValue();
+                if (name.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Please fill in a filename");
+                    return;
                 }
-            };
-            new Thread(downloadThread).start();
+
+                String url = urlInput.getText();
+                if (url.equals("") || !url.contains("https://") || !url.contains("seg")) {
+                    JOptionPane.showMessageDialog(null, "Please fill in a valid segment url");
+                    return;
+                }
+
+                Runnable downloadRunnable = () -> {
+                    try {
+                        Manager.useManager(Dialog.this, name, url);
+                    } catch (Exception manager_exception) {
+                        JOptionPane.showMessageDialog(null, downloadFinishedMessage);
+                    }
+                };
+                downloadThread = new Thread(downloadRunnable);
+                downloadThread.start();
+            }
         });
 
         helpButton.addActionListener(e -> {
@@ -140,6 +155,16 @@ public class Dialog extends JFrame {
 
     void setSegmentNr(String i) {
         segmentNr.setText(segDownloadedString + i);
+    }
+
+    private void toggleDownload() {
+        if (downloading) {
+            downloading = false;
+            downloadButton.setText(downloadTitle);
+        } else {
+            downloading = true;
+            downloadButton.setText(stopDownloadTitle);
+        }
     }
 
 }
