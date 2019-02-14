@@ -92,19 +92,20 @@ public class Dialog extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
 
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(10, 0, 0, 0);  //top padding
+        c.insets = new Insets(10, 10, 0, 10);  //top padding
         c.gridx = 0;
         c.gridy = 0;
         add(fileName, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
+        c.insets = new Insets(10, 10, 0, 10);  //top padding
         c.weightx = 1.0;
         c.gridx = 0;
         c.gridy = 1;
         add(urlTitle, c);
 
         c.fill = GridBagConstraints.HORIZONTAL;
-        c.insets = new Insets(0, 0, 0, 0);  //top padding
+        c.insets = new Insets(0, 10, 0, 10);  //top padding
         c.ipady = 50;      //make this component tall
         c.weightx = 1.0;
         c.gridx = 0;

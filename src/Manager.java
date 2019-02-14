@@ -77,6 +77,8 @@ public class Manager {
      * @return A parsed url
      */
     private static String parseUrl(String inputUrl) throws Exception {
+        if (inputUrl.contains("[i]")) return inputUrl;  // Manual input
+
         for (Map.Entry<String, String> elem : parseDic.entrySet()) {
             if (inputUrl.contains(elem.getKey())) {
                 return inputUrl.replaceAll(elem.getKey(), elem.getValue());
