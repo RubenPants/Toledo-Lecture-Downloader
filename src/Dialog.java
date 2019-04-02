@@ -72,12 +72,14 @@ public class Dialog extends JFrame {
                 String name = fileName.getValue();
                 if (name.equals("")) {
                     JOptionPane.showMessageDialog(null, "Please fill in a filename");
+                    toggleDownload();
                     return;
                 }
 
                 String url = urlInput.getText();
-                if (url.equals("") || !url.contains("https://") || !url.contains("seg")) {
+                if (url.equals("") || !url.contains("https://") || !(url.contains("seg") || url.contains("[i]"))) {
                     JOptionPane.showMessageDialog(null, "Please fill in a valid segment url");
+                    toggleDownload();
                     return;
                 }
 
@@ -86,6 +88,7 @@ public class Dialog extends JFrame {
                         Manager.useManager(Dialog.this, name, url);
                     } catch (Exception manager_exception) {
                         JOptionPane.showMessageDialog(null, downloadFinishedMessage);
+                        toggleDownload();
                     }
                 };
                 downloadThread = new Thread(downloadRunnable);
