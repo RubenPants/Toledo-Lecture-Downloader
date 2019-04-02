@@ -16,7 +16,7 @@ public class Dialog extends JFrame {
     private static final long serialVersionUID = 1L;
 
     // Messages
-    private static String segDownloadedString = "Amount of segments loaded: ";
+    private static String segDownloadedString = "Amount of segments downloaded: ";
     private static String downloadFinishedMessage = "Download finished.\n" +
             "If file not in root directory then download has failed.";
     private static String siteErrorMessage = "Site could not be reached";
@@ -77,7 +77,8 @@ public class Dialog extends JFrame {
                 }
 
                 String url = urlInput.getText();
-                if (url.equals("") || !url.contains("https://") || !(url.contains("seg") || url.contains("[i]"))) {
+                if (url.equals("") || !url.contains("https://") || !(url.contains("seg") || url.contains("[i]") ||
+                        url.contains("[x"))) {
                     JOptionPane.showMessageDialog(null, "Please fill in a valid segment url");
                     toggleDownload();
                     return;

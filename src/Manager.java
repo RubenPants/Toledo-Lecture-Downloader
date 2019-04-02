@@ -49,12 +49,30 @@ public class Manager {
      * @param segUrl: The input url which needs to be downloaded
      */
     private static void downloadVideo(String segUrl, String fileName, Dialog dialog) throws Exception {
+        int index;
+        if (segUrl.contains("[x")) {  // Manual set for index
+            try {
+                String parsedIndexString = segUrl.substring(segUrl.indexOf("[x") + 2);
+                parsedIndexString = parsedIndexString.substring(0, parsedIndexString.indexOf("]"));
+                index = Integer.valueOf(parsedIndexString);
+
+                // Change the segUrl to base form (with [i])
+                String midSeg = "[x" + index + "]";
+                String segUrlStart = segUrl.substring(0, segUrl.indexOf(midSeg));
+                String segUrlEnd = segUrl.substring(segUrl.indexOf(midSeg) + midSeg.length());
+                segUrl = segUrlStart + "[i]" + segUrlEnd;
+            } catch (Exception e) {
+                throw new Exception();
+            }
+        } else {
+            index = 1;
+        }
+
         // Split URL in two
         String[] splitUrl = splitUrl(segUrl);
         String first = splitUrl[0];
         String second = splitUrl[1];
 
-        int index = 1;
         while (true) {
             try {
                 String i = Integer.toString(index);
@@ -77,7 +95,7 @@ public class Manager {
      * @return A parsed url
      */
     private static String parseUrl(String inputUrl) throws Exception {
-        if (inputUrl.contains("[i]")) return inputUrl;  // Manual input
+        if (inputUrl.contains("[i]") || inputUrl.contains("[x")) return inputUrl;  // Manual input
 
         for (Map.Entry<String, String> elem : parseDic.entrySet()) {
             if (inputUrl.contains(elem.getKey())) {

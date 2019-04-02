@@ -39,9 +39,9 @@ yet downloaded it. Within the program, do the following:
 
 
 ## Q&A
-#### I could not find the *seg-1-...* HTTP-request in the Network pane
+#### I could not find the `seg-1-...` HTTP-request in the Network pane
 First make sure you are getting HTTP-requests, it is always a safe bet to
-refresh the page (press CTRL+R). If you still cannot find the *seg-1-...*
+refresh the page (press CTRL+R). If you still cannot find the `seg-1-...`
 request, then try to search for another request that often reoccurs. The
 needed HTTP-request will always contain an index specifying which segment
 is requested, so search for this.
@@ -57,21 +57,28 @@ all over again if you want the full lecture to be downloaded.
 
 #### It said *Download finished* but there is no video file
 It is possible that not all lectures use the same segment syntax (i.e. 
-the *Request url* does not contain *seg-1-...*). It will always be possible 
+the *Request url* does not contain `seg-1-...`). It will always be possible 
 to do the following:
 
 1. You can manually change the url. Normally, the request-url will have some
-kind of accumulating index (e.g. *lec-1-...* instead of *seg-1-...*), in this 
-case, replace this index with the following: *[i]*. Normally the lecture 
+kind of accumulating index (e.g. `lec-1-...` instead of `seg-1-...`), in this 
+case, replace this index with the following: `[i]`. Normally the lecture 
 would then be downloaded without a problem.
 
-2. If you plan to download multiple lectures it could be quite a lot of
+2. If you want to start the downloading from a given segment (e.g. when the 
+previous download stopped due to a connection failure) then this is possible 
+by adding `[x<number>]` instead of `[i]` with `<number>` the segment-index
+you want to start downloading from. Note that if you already have a 
+video-file with the name you have chosen, then the newly downloaded segments
+will be simply added at the back of this segment.
+
+3. If you plan to download multiple lectures it could be quite a lot of
 work to manually change each url. It is possible to change the code 
 (this *solution* is only recommended if you are familiar with coding).
 Inside the *Manager.java* class a dictionary named *parseDic* is created.
 Find the prefix used for your lectures and put this in the dictionary.
 Say for example that your lecture uses the following: *lec-1-...* then
-add the following to the dictionary: ``` put("lec-1-", "lec-[i]-"); ```.
+add the following to the dictionary: `put("lec-1-", "lec-[i]-");`.
 
 #### Why is the download taking this long?
 A lecture is downloaded by downloading segments of around 9 seconds
