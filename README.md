@@ -2,18 +2,15 @@
 ## Download Lectures
 To download your lecture you first need to do the following steps:
 1. Open the lecture inside a new tab by clicking on the icon indicated
- in the figure below. Please do not start the lecture yet! <br/>
+ in the figure below. <br/>
 ![new tab image](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/new_tab.JPG)
 
 2. Open *developer tools* in the new tab you just opened (the tab the
-lecture is in). *Developer tools* can be opened by going to your tab-
+lecture is in). You can open *Developer tools* by going to your tab-
 settings, or pressing F12 in chrome. <br/>
 ![developer tools](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/dev_tools.png)
 
-3. Once developer options is opened you have to go to the *network*
-section. After you did this, you can play the lecture video. HTTP-
-request normally will start coming in (no worries, most of them
-are irrelevant for our purpose). If nothing happens, please refresh
+3. Once developer, go to the *network* section. After you did this, you can play the lecture video. Video-segments start to occur as highlighted in the image below. Don't mind the bloat of messages, only the *seg-* messages are relevant to download the lecture. If nothing happens, please refresh
 the tab (press CTRL+R). <br/>
 ![network pane](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/network.JPG)
 
@@ -26,16 +23,16 @@ request, a new pane will open. <br />
 found, you have to copy this url. 
 ![segment request url](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/copy_url.JPG)
 
-6. Open the program by running the *ToledoVideoDownloader.jar* file
-which can be found inside the root-directory on github if you didn't
+6. Open the program by running the *ToledoVideoDownloader.jar* file (note that Java must be installed on your PC in order to run this) which can be found inside the root-directory on GitHub if you didn't
 yet downloaded it. Within the program, do the following:
-    - Fill in a file name. After downloading, the video can be found
+ - Fill in a file name. After downloading, the video can be found
     under this name inside the same directory the program 
     (*ToledoVideoDownloader.jar*) is in.
-    - Paste the *request url* of the step 5 inside the *URL of first
+    - Paste the *request URL* of step 5 inside the *URL of first
     segment* block.
     - Press the *Download* button to run the program.<br/>
-![program](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/program.JPG)
+   ![program](https://raw.githubusercontent.com/RubenPants/Toledo-Lecture-Downloader/master/img/program.JPG)
+7. The lecture will now start downloading. When finished, a message will pop-up. Please check the lecture-file if it's (almost) as long as the original lecture. If so, you're good to go! Note that the downloaded video will most likely be a `.ts` file, which is nothing to worry about.
 
 
 ## Q&A
